@@ -7,6 +7,7 @@
 <link href='assets/packages/timegrid/main.css' rel='stylesheet' />
 <link href='assets/packages/list/main.css' rel='stylesheet' />
 <link href='assets/css/style.css' rel='stylesheet' />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 <body>
@@ -29,9 +30,11 @@
       </p>
     </div>
 
+
     <div 
     id='calendar'
     data-route-load-events= "{{ route('routeLoadEvents') }}"
+    data-route-event-update= "{{ route('routeEventUpdate') }}"
     ></div>
 
     <div style='clear:both'></div>
@@ -43,6 +46,8 @@
 <script src='assets/packages/timegrid/main.js'></script>
 <script src='assets/packages/list/main.js'></script>
 <script src='assets/packages/core/locales-all.js'></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 <script src='assets/js/script.js'></script>
 <script src='assets/js/home.js'></script>
 </body>

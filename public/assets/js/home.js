@@ -52,6 +52,39 @@
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
+      eventDrop: function(element){
+        let start = moment(element.event.start).format('YYYY-MM-DD HH:mm:ss');
+        let end = moment(element.event.end).format('YYYY-MM-DD HH:mm:ss');
+        
+        let newEvent = {
+          _method:'PUT',
+          id: element.event.id,
+          start: start,
+          end: end
+        };
+
+        sendEvent(routeEvents('routeEventUpdate'),newEvent)
+      },
+      eventClick: function(event){
+        alert('event Click');
+      },
+      eventResize: function(element){
+
+        let start = moment(element.event.start).format('YYYY-MM-DD HH:mm:ss');
+        let end = moment(element.event.end).format('YYYY-MM-DD HH:mm:ss');
+        
+        let newEvent = {
+          _method:'PUT',
+          id: element.event.id,
+          start: start,
+          end: end
+        };
+
+        sendEvent(routeEvents('routeEventUpdate'),newEvent)
+      },
+      select: function (event){
+        alert ('event Select');
+      },
       events: routeEvents('routeLoadEvents'),
     });
     calendar.render();

@@ -52,11 +52,9 @@
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
-      events: '',
+      events: routeEvents('routeLoadEvents'),
     });
     calendar.render();
 
   });
 
-
-  console.log(routeEvents('test'))

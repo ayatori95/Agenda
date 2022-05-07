@@ -8,16 +8,6 @@
 <link href='assets/packages/list/main.css' rel='stylesheet' />
 <link href='assets/css/style.css' rel='stylesheet' />
 
-<script src='assets/packages/core/main.js'></script>
-<script src='assets/packages/interaction/main.js'></script>
-<script src='assets/packages/daygrid/main.js'></script>
-<script src='assets/packages/timegrid/main.js'></script>
-<script src='assets/packages/list/main.js'></script>
-<script src='assets/packages/core/locales-all.js'></script>
-<script src='assets/js/script.js'></script>
-<script src='assets/js/home.js'></script>
-
-
 </head>
 <body>
   <div id='wrap'>
@@ -41,11 +31,19 @@
 
     <div 
     id='calendar'
-    data-rout-load-events= "{{ route('loadEvents') }}"
+    data-route-load-events= "{{ route('routeLoadEvents') }}"
     ></div>
 
     <div style='clear:both'></div>
 
   </div>
+<script src='assets/packages/core/main.js'></script>
+<script src='assets/packages/interaction/main.js'></script>
+<script src='assets/packages/daygrid/main.js'></script>
+<script src='assets/packages/timegrid/main.js'></script>
+<script src='assets/packages/list/main.js'></script>
+<script src='assets/packages/core/locales-all.js'></script>
+<script src='assets/js/script.js'></script>
+<script src='assets/js/home.js'></script>
 </body>
 </html>

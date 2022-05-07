@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\CalendarController::class,'index']);
-
-Route::get('/load-events', 'EventController@loadEvents')->name('loadEvents');
+Route::get('/load-events', [\App\Http\Controllers\EventController::class,'loadEvents'])->name('routeLoadEvents');
+//Route::get('/load-events', 'EventController@loadEvents')->name('routeLoadEvents');

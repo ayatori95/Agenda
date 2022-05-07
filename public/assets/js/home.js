@@ -41,6 +41,8 @@
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
       locale: 'pt',
+      navLinks: true,
+      eventLimit: true,
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       drop: function(arg) {
@@ -49,8 +51,12 @@
           // if so, remove the element from the "Draggable Events" list
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
-      }
+      },
+      events: '',
     });
     calendar.render();
 
   });
+
+
+  console.log(routeEvents('test'))

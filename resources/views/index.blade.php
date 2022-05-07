@@ -14,7 +14,9 @@
 <script src='assets/packages/timegrid/main.js'></script>
 <script src='assets/packages/list/main.js'></script>
 <script src='assets/packages/core/locales-all.js'></script>
+<script src='assets/js/script.js'></script>
 <script src='assets/js/home.js'></script>
+
 
 </head>
 <body>
@@ -37,7 +39,10 @@
       </p>
     </div>
 
-    <div id='calendar'></div>
+    <div 
+    id='calendar'
+    data-rout-load-events= "{{ route('loadEvents') }}"
+    ></div>
 
     <div style='clear:both'></div>
 

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             $table->string('color');
+            $table->string('location');
+            $table->integer('status');
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

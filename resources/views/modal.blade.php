@@ -15,7 +15,18 @@
                     <input type="hidden" name="id">
                 </div>
             </div>
-            
+            <div class="form-group row">
+                <label for="title" class="col-sm-4 col-form-label">Local</label>
+                <div class="col-sm-8">
+                    <input type="text" name="location" class="form-control" id="location">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="title" class="col-sm-4 col-form-label">Status</label>
+                <div class="col-sm-8">
+                    <input type="text" name="status" class="form-control" id="status">
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="start" class="col-sm-4 col-form-label">Data/Hora Inicial</label>
                 <div class="col-sm-8">

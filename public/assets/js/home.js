@@ -45,26 +45,40 @@
       eventLimit: true,
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
-      drop: function(arg) {
+      drop: function(element) {
+
+        let Event = JSON.parse(element.draggedEl.dataset.event);
+
         // is the "remove after drop" checkbox checked?
         if (document.getElementById('drop-remove').checked) {
           // if so, remove the element from the "Draggable Events" list
-          arg.draggedEl.parentNode.removeChild(arg.draggedEl);
+          element.draggedEl.parentNode.removeChild(element.draggedEl);
         }
+
+        let start = moment(`${element.dateStr} ${Event.start}`).format('YYYY-MM-DD HH:mm:ss');
+        let end = moment(`${element.dateStr} ${Event.end}`).format('YYYY-MM-DD HH:mm:ss');
+        Event.start = start;
+        Event.end = end;
+        Event.location._i = location;
+        Event.status._i = status;
+
+        delete Event.id;
+        console.log(Event);
+        sendEvent(routeEvents('routeEventStore'),Event);
       },
+
       eventDrop: function(element){
         let start = moment(element.event.start).format('YYYY-MM-DD HH:mm:ss');
         let end = moment(element.event.end).format('YYYY-MM-DD HH:mm:ss');
-        let location = moment(element.event.location);
-        let status = moment(element.event.status);
 
         let newEvent = {
           _method:'PUT',
           id: element.event.id,
+          title: element.event.title,
           start: start,
           end: end,
-          location: location,
-          status: status
+          location: element.event.location,
+          status: element.event.status
         };
 
         sendEvent(routeEvents('routeEventUpdate'),newEvent)
@@ -92,10 +106,10 @@
         let color = element.event.backgroundColor;
         $("#modalCalendar input[name='color']").val(color);
 
-        let location = element.event.location;
+        let location = element.event.extendedProps.location;
         $("#modalCalendar input[name='location']").val(location);
 
-        let status = element.event.status;
+        let status = element.event.extendedProps.status;
         $("#modalCalendar input[name='status']").val(status);
 
         let description = element.event.extendedProps.description;
@@ -106,16 +120,14 @@
 
         let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
         let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
-        let location = moment(element.event.location);
-        let status = moment(element.event.status);
 
         let newEvent = {
           _method:'PUT',
           id: element.event.id,
           start: start,
           end: end,
-          location: location,
-          status: status
+          location: element.event.location,
+          status: element.event.status
         };
 
         sendEvent(routeEvents('routeEventUpdate'),newEvent)

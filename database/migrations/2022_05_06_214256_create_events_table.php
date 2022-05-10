@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('end');
             $table->string('color');
             $table->string('location');
-            $table->integer('status');
+            $table->string('status');
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

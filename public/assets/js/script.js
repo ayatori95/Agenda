@@ -10,6 +10,20 @@ $(function (){
         }
     });
 
+    $(".deleteEvent").click(function(){
+        
+        let id = $("#modalCalendar input[name='id']").val();
+
+        let Event = {
+            id: id,
+            _method: 'DELETE'
+        };
+
+        let route = routeEvents('routeEventDelete');
+        sendEvent(route,Event);
+    });
+
+
     $(".saveEvent").click(function(){
 
         let id = $("#modalCalendar input[name='id']").val();
